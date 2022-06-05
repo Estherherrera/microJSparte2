@@ -202,14 +202,14 @@ function dividers() {
     let btnGiven = document.getElementById("btn-given")
 
     let array = []
-    let j = 0
+        //let j = 0
 
     function givenDividers(num) {
         for (let i = 0; i <= num / 2; i++) {
 
             if (num % i == 0) {
-                array[j] = i;
-                j++
+                array.push(i);
+                // j++
             }
         }
         console.log(array)
@@ -241,7 +241,7 @@ function commonDividers() {
 
     function common(numOne, numTwo) {
         let menor
-        if (numOne < numTwo) {
+        if (numOne <= numTwo) {
             menor = numOne
         }
         if (numTwo < numOne) {
@@ -252,8 +252,7 @@ function commonDividers() {
         for (let i = 1; i <= (menor / 2); i++) {
             console.log(i)
             if (numOne % i == 0 && numTwo % i == 0) {
-                common[j] = i;
-                j++
+                common.push(i)
             }
 
         }
@@ -276,17 +275,14 @@ function showPrime() {
         showAnswer.innerHTML = answer
     })
 
-
     function primeNumber(num) {
-        let pointer = false
+
         for (let i = 2; i <= num / 2; i++) {
-            if (num % i != 0) pointer = true
-            if (pointer) {
-                return `El ${num} es un Número Primo`
-            } else {
-                return `El Número ${num} no es para nada primo`
+            if (num % i == 0) {
+                return `El ${num} no es un Número Primo`
             }
         }
+        return `El Número ${num} es primo`
     }
 }
 app()
